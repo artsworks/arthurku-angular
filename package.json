@@ -1,0 +1,18 @@
+{
+  "name": "arthurku-angular",
+  "private": false,
+  "version": "0.0.1",
+  "description": "Lite AngularJS Project",
+  "repository": "https://github.com/artsworks/arthurku-angular",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.3.1",
+    "gulp": "^3.9.1",
+    "http-server": "^0.6.1"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1"
+  }
+}
