@@ -23,13 +23,11 @@ var csslibs = [
 ];
 
 
-gulp.task('default', function () {
-    console.log('running default task..');
-});
-gulp.task('dev', function () {
+gulp.task('default', ['html', 'csslibs', 'cssapp', 'jslibs', 'jsapp', 'connect', 'watch']);
+gulp.task('dev', ['default'], function () {
     console.log('running dev task..');
 });
-gulp.task('build', function () {
+gulp.task('build', ['html', 'csslibs', 'cssapp', 'jslibs', 'jsapp'], function () {
     console.log('running distribution task..');
 });
 
@@ -67,7 +65,7 @@ gulp.task('jsapp', function() {
  * Style compiler
  * */
 var less = require('gulp-less');
-gulp.task('cssapps', function () {
+gulp.task('cssapp', function () {
     return gulp.src('./app/less/main.less')
         .pipe(less())
         .pipe(gulp.dest('./dist/'));
@@ -98,6 +96,7 @@ gulp.task('connect', function() {
  * Watchers
  * */
 gulp.task('watch', function () {
-    gulp.watch('./app/less/**/*.less', ['cssapps']);
-    gulp.watch(['./app/**/*.js','!./app/bower_components/**'], ['jsapps']);
+    gulp.watch('./app/less/**/*.less', ['cssapp']);
+    gulp.watch(['./app/**/*.js','!./app/bower_components/**'], ['jsapp']);
+    gulp.watch(['./app/**/*.html','!./app/bower_components/**'], ['html']);
 });
