@@ -1,21 +1,43 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
-    'ngRoute',
-    'myApp.view1',
-    'myApp.view2'
-]).config(['$routeProvider', function ($routeProvider) {
+// app module
+angular.module('aku', [
+        'ngRoute',
+        'ngAria',
+        'ngMaterial',
 
-    $routeProvider.when('/view1', {
-        templateUrl: 'view1/view1.html',
-        controller: 'View1Ctrl'
-    });
+        // components
+        'aku.sidebar',
+        'aku.menu-bottom',
 
-    $routeProvider.when('/view2', {
-        templateUrl: 'view2/view2.html',
-        controller: 'View2Ctrl'
-    });
+        // views
+        'aku.home',
+        'aku.about',
+        'aku.portfolio',
+        'aku.contact'
+    ])
 
-    $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+    // app router
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/home', {
+            templateUrl: 'views/home.html',
+            controller: 'HomeCtrl'
+        });
+
+        $routeProvider.when('/about', {
+            templateUrl: 'views/about.html',
+            controller: 'AboutCtrl'
+        });
+
+        $routeProvider.when('/portfolio', {
+            templateUrl: 'views/portfolio.html',
+            controller: 'PortfolioCtrl'
+        });
+
+        $routeProvider.when('/contact', {
+            templateUrl: 'views/contact.html',
+            controller: 'ContactCtrl'
+        });
+
+        $routeProvider.otherwise({redirectTo: '/home'});
+    }]);

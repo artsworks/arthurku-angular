@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var cleancss = require('gulp-clean-css');
+var clean = require('gulp-clean');
 
 
 /**
@@ -11,6 +12,7 @@ var jslibs = [
     './app/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
     './app/bower_components/angular/angular.js',
     './app/bower_components/angular-animate/angular-animate.js',
+    './app/bower_components/angular-aria/angular-aria.js',
     './app/bower_components/angular-loader/angular-loader.js',
     './app/bower_components/angular-material/angular-material.js',
     './app/bower_components/angular-messages/angular-messages.js',
@@ -30,6 +32,22 @@ gulp.task('dev', ['default'], function () {
 gulp.task('build', ['html', 'csslibs', 'cssapp', 'jslibs', 'jsapp'], function () {
     console.log('running distribution task..');
 });
+gulp.task('clean', function () {
+    return gulp.src('dist/', {read: false})
+        .pipe(clean());
+});
+
+
+/**
+ * Development server
+ * */
+var connect = require('gulp-connect');
+gulp.task('connect', function() {
+    connect.server({
+        root: 'dist',
+        livereload: true
+    });
+});
 
 
 /**
@@ -38,7 +56,8 @@ gulp.task('build', ['html', 'csslibs', 'cssapp', 'jslibs', 'jsapp'], function ()
 var copy = require('gulp-copy');
 gulp.task('html', function () {
     return gulp.src(['./app/**/*.html','!./app/bower_components/**'])
-        .pipe(copy('./dist/', {prefix: 1}));
+        .pipe(copy('./dist/', {prefix: 1}))
+        .pipe(connect.reload());
 });
 
 
@@ -57,7 +76,8 @@ gulp.task('jsapp', function() {
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./dist/'))
         .pipe(uglify())
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
+        .pipe(connect.reload());
 });
 
 
@@ -68,7 +88,8 @@ var less = require('gulp-less');
 gulp.task('cssapp', function () {
     return gulp.src('./app/less/main.less')
         .pipe(less())
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
+        .pipe(connect.reload());
 });
 gulp.task('csslibs', function () {
     return gulp.src(csslibs)
@@ -77,18 +98,6 @@ gulp.task('csslibs', function () {
             keepSpecialComments: 0
         }))
         .pipe(gulp.dest('./dist/'));
-});
-
-
-/**
- * Development server
- * */
-var connect = require('gulp-connect');
-gulp.task('connect', function() {
-    connect.server({
-        root: 'dist',
-        livereload: true
-    });
 });
 
 
