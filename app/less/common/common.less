@@ -1,30 +1,50 @@
+@import (reference) "../../less/common/mixin.less";
+
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-p {
-  padding: 10px;
+h1, p {
+  margin: 0;
 }
 
-.page {
-  padding: 10px;
+md-grid-tile {
+  .transition(all 400ms ease-out 50ms);
 }
 
 .center {
   margin: 0 auto;
 }
 
-.logo-big {
+.spacer {
+  padding: 10px;
+}
+
+.page {
+  width: 100%;
+}
+
+.container {
+  width: 75%;
+  .center;
+}
+
+.logo-big, .logo-medium, .logo-small {
   font-size: 72px;
   padding: 20px;
+  text-transform: uppercase;
 }
+
 .logo-medium {
-  font-size: 36px;
-  padding: 10px;
+  font-size: 28px;
+}
+
+.logo-small {
+  font-size: 18px;
 }
 
 #menu-bottom {
   width: 100%;
-  position: absolute;
-  bottom: 30px;
+  position: fixed;
+  bottom: 20px;
 }

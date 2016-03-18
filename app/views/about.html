@@ -1,13 +1,19 @@
 <div id="page-about" class="page">
-  <h1>About</h1>
-  <!--<div layout="row" layout-xs="column">-->
-    <!--<div flex>-->
-      <!--I'm above on mobile, and to the left on larger devices.-->
-    <!--</div>-->
-    <!--<div flex>-->
-      <!--I'm below on mobile, and to the right on larger devices.-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="spacer"></div>
+  <div class="container" layout="row" layout-align="center center">
+    <h1 class="logo-medium">About</h1>
+    <p flex>Full-time web developer. Cinematography enthusiast. Photographer by heart.</p>
+  </div>
+  <div class="spacer"></div>
 
-  <!--<md-button class="md-raised md-primary" ng-click="openSideMenu()">Side Menu</md-button>-->
+  <md-grid-list
+      md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4" md-row-height="1:1"
+      md-gutter="12px" md-gutter-gt-sm="8px" class="container" layout-align="center center" ng-cloak>
+    <md-grid-tile class="gray" ng-repeat="s in skills">
+      <h1 class="logo-med" ng-bind="s.name">HTML 5</h1>
+      <md-grid-tile-footer layout-align="center center">
+        <md-icon md-font-library="material-icons" ng-repeat="l in s.level">star</md-icon>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
 </div>

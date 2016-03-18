@@ -25,13 +25,9 @@ var csslibs = [
 ];
 
 
-gulp.task('default', ['html', 'csslibs', 'cssapp', 'jslibs', 'jsapp', 'connect', 'watch']);
-gulp.task('dev', ['default'], function () {
-    console.log('running dev task..');
-});
-gulp.task('build', ['html', 'csslibs', 'cssapp', 'jslibs', 'jsapp'], function () {
-    console.log('running distribution task..');
-});
+gulp.task('default', ['dev']);
+gulp.task('dev', ['html', 'img', 'csslibs', 'cssapp', 'jslibs', 'jsapp', 'connect', 'watch']);
+gulp.task('build', ['html', 'img', 'csslibs', 'cssapp', 'jslibs', 'jsapp']);
 gulp.task('clean', function () {
     return gulp.src('dist/', {read: false})
         .pipe(clean());
@@ -58,6 +54,10 @@ gulp.task('html', function () {
     return gulp.src(['./app/**/*.html','!./app/bower_components/**'])
         .pipe(copy('./dist/', {prefix: 1}))
         .pipe(connect.reload());
+});
+gulp.task('img', function () {
+    return gulp.src(['./app/img/*'])
+        .pipe(copy('./dist/', {prefix: 1}))
 });
 
 

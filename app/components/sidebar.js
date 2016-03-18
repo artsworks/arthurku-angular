@@ -6,7 +6,7 @@ angular.module('aku.sidebar', [])
             restrict: "E",
             scope: true,
             replace: true,
-            templateUrl: "components/sidebar/sidebar.html",
+            templateUrl: "components/sidebar.html",
             controller: "SideCtrl"
         }
     })
