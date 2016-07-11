@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -29,7 +31,7 @@ gulp.task('default', ['dev']);
 gulp.task('dev', ['html', 'img', 'csslibs', 'cssapp', 'jslibs', 'jsapp', 'connect', 'watch']);
 gulp.task('build', ['html', 'img', 'csslibs', 'cssapp', 'jslibs', 'jsapp']);
 gulp.task('clean', function () {
-    return gulp.src('dist/', {read: false})
+    return gulp.src(['dist/', 'app/templates.js'], {read: false})
         .pipe(clean());
 });
 
@@ -40,7 +42,8 @@ gulp.task('clean', function () {
 var connect = require('gulp-connect');
 gulp.task('connect', function() {
     connect.server({
-        root: 'dist',
+        root: 'dist/',
+        port: 9000,
         livereload: true
     });
 });
@@ -51,13 +54,14 @@ gulp.task('connect', function() {
  * */
 var copy = require('gulp-copy');
 gulp.task('html', function () {
-    return gulp.src(['./app/**/*.html','!./app/bower_components/**'])
+    // return gulp.src(['./app/**/*.html','!./app/bower_components/**'])
+    return gulp.src(['./app/index.html'])
         .pipe(copy('./dist/', {prefix: 1}))
         .pipe(connect.reload());
 });
 gulp.task('img', function () {
     return gulp.src(['./app/img/*'])
-        .pipe(copy('./dist/', {prefix: 1}))
+        .pipe(copy('./dist/', {prefix: 1}));
 });
 
 
@@ -71,7 +75,7 @@ gulp.task('jslibs', function() {
         .pipe(uglify())
         .pipe(gulp.dest('./dist/'));
 });
-gulp.task('jsapp', function() {
+gulp.task('jsapp', ['templates'], function() {
     return gulp.src(['./app/**/*.js','!./app/bower_components/**'])
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./dist/'))
@@ -98,6 +102,17 @@ gulp.task('csslibs', function () {
             keepSpecialComments: 0
         }))
         .pipe(gulp.dest('./dist/'));
+});
+
+
+/**
+ * Templates compiler
+ */
+var templateCache = require('gulp-angular-templatecache');
+gulp.task('templates', function () {
+    return gulp.src(['./app/**/*.html', '!./app/index.html', '!./app/bower_components/**'])
+        .pipe(templateCache('templates.js', {'module': 'aku'}))
+        .pipe(gulp.dest('./app/'));
 });
 
 
