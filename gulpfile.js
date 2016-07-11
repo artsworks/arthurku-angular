@@ -11,7 +11,6 @@ var clean = require('gulp-clean');
  * Constants
  * */
 var jslibs = [
-    './app/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
     './app/bower_components/angular/angular.js',
     './app/bower_components/angular-animate/angular-animate.js',
     './app/bower_components/angular-aria/angular-aria.js',
@@ -21,7 +20,6 @@ var jslibs = [
     './app/bower_components/angular-route/angular-route.js'
 ];
 var csslibs = [
-    './app/bower_components/html5-boilerplate/dist/css/main.css',
     './app/bower_components/angular/angular-csp.css',
     './app/bower_components/angular-material/angular-material.css'
 ];
