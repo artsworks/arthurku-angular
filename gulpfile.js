@@ -120,5 +120,5 @@ gulp.task('templates', function () {
 gulp.task('watch', function () {
     gulp.watch('./app/less/**/*.less', ['cssapp']);
     gulp.watch(['./app/**/*.js','!./app/bower_components/**'], ['jsapp']);
-    gulp.watch(['./app/**/*.html','!./app/bower_components/**'], ['html']);
+    gulp.watch(['./app/**/*.html','!./app/bower_components/**'], ['html', 'jsapp']);
 });

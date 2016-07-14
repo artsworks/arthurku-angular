@@ -3,7 +3,6 @@
     <md-list-item ng-repeat="i in items">
       <md-button class="md-grid-item-content md-raised md-fab" ng-click="goTo(i.name)" aria-label="{{i.name}}">
         <md-icon md-font-library="material-icons" ng-bind="i.icon"></md-icon>
-        <md-tooltip md-direction="top">{{i.name}}</md-tooltip>
       </md-button>
     </md-list-item>
   </md-list>

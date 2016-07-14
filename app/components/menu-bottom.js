@@ -14,8 +14,8 @@ angular.module('aku.menu-bottom', [])
         $scope.items = [
             {name: 'Home', icon: 'home'},
             {name: 'About', icon: 'account_circle'},
-            {name: 'Portfolio', icon: 'assignment'},
-            {name: 'Contact', icon: 'mail'},
+            // {name: 'Portfolio', icon: 'assignment'},
+            // {name: 'Contact', icon: 'mail'},
             {name: 'Hobby', icon: 'camera'}
         ];
         $scope.goTo = function (where) {

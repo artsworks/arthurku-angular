@@ -12,13 +12,11 @@ angular.module('aku', [
 
         // views
         'aku.home',
-        'aku.about',
-        'aku.portfolio',
-        'aku.contact'
+        'aku.about'
     ])
 
     // app router
-    .config(['$routeProvider', function ($routeProvider) {
+    .config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
         $routeProvider.when('/home', {
             templateUrl: 'views/home.html',
             controller: 'HomeCtrl'
@@ -29,15 +27,10 @@ angular.module('aku', [
             controller: 'AboutCtrl'
         });
 
-        $routeProvider.when('/portfolio', {
-            templateUrl: 'views/portfolio.html',
-            controller: 'PortfolioCtrl'
-        });
-
-        $routeProvider.when('/contact', {
-            templateUrl: 'views/contact.html',
-            controller: 'ContactCtrl'
-        });
-
         $routeProvider.otherwise({redirectTo: '/home'});
+
+        $mdThemingProvider.theme('default')
+            .primaryPalette('grey', {
+                'default': '900'
+            });
     }]);
