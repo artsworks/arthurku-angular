@@ -1,21 +1,29 @@
-#page-home {
-  .logo-big, .logo-medium, .logo-small {
-    font-size: 72px;
-    padding-right: 10px;
-  }
+@import (reference) "../common/colors.less";
 
-  .badge {
-    height: 90vh;
-    h1 {
+#page-home {
+  .container {
+    height: 100vh;
+
+    .logo {
       border: 10px solid;
-      padding: 10px;
       margin: 10px;
+      padding: 20px;
+      font-size: 96px;
+      text-transform: uppercase;
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 720px) {
     .container {
-      width: 100%;
+      width: 90%;
+
+      .logo {
+        font-size: 72px;
+        padding: 10px;
+      }
+      .text {
+        font-size: 16px;
+      }
     }
   }
 }
