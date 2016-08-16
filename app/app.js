@@ -7,7 +7,7 @@ angular.module('aku', [
         'ngMaterial',
 
         // components
-        'aku.sidebar',
+        'aku.menu-top',
         'aku.menu-bottom',
 
         // views

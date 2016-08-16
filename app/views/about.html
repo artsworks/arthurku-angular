@@ -1,51 +1,58 @@
-<div id="page-about" class="page" flex layout-fill ng-cloak>
-  <md-content class="page-content">
-    <md-toolbar md-scroll-shrink md-tall>
-      <h1 class="logo-medium">About</h1>
-    </md-toolbar>
+<menu-top></menu-top>
 
-    <section>
-      <md-subheader class="md-primary"><h2>Myself</h2></md-subheader>
-      <md-grid-list md-cols="1" md-cols-gt-sm="3" md-row-height="fit" style="height: 150px;">
-        <md-grid-tile>
-          <p>Full-time web <strong>developer</strong>.</p>
-        </md-grid-tile>
-        <md-grid-tile>
-          <p><strong>Cinematography</strong> enthusiast.</p></md-grid-tile>
-        <md-grid-tile>
-          <p><strong>Photographer</strong> by heart.</p></md-grid-tile>
-      </md-grid-list>
-    </section>
+<div id="page-about" class="page" ng-cloak>
+    <div class="container">
+        <section>
+            <h1>Profile</h1>
+            <md-grid-list
+                    class="grid-profile"
+                    md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
+                    md-row-height-gt-md="1:1" md-row-height="2:1"
+                    md-gutter="5px">
+                <md-grid-tile class="color-2" md-rowspan="1" md-colspan="3" md-colspan-sm="1" md-colspan-xs="1">
+                    <p>Arthur <strong>Kusumadjaja</strong></p>
+                </md-grid-tile>
+                <md-grid-tile class="color-1" md-rowspan="2" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+                    <p>Full-time web <strong>developer</strong>.</p>
+                </md-grid-tile>
+                <md-grid-tile class="color-3">
+                    <p><strong>Cinematography</strong> enthusiast.</p>
+                </md-grid-tile>
+                <md-grid-tile class="color-4">
+                    <p><strong>Photographer</strong> by heart.</p>
+                </md-grid-tile>
+                <md-grid-tile class="color-5" md-rowspan="1" md-colspan="3" md-colspan-sm="1" md-colspan-xs="1">
+                    <p><strong>Melbourne</strong>, Australia</p>
+                </md-grid-tile>
+            </md-grid-list>
+        </section>
 
-    <section>
-      <md-list>
-        <md-subheader class="md-primary"><h2>Previous Projects</h2></md-subheader>
-        <md-list-item class="md-3-line md-long-text" ng-repeat="p in portfolios">
-          <img ng-src="{{p.avatar}}?{{$index}}" class="md-avatar" alt="{{p.title}}"/>
-          <div class="md-list-item-text" layout="column">
-            <h3>{{ p.title }} <a ng-href="{{p.url}}"><md-icon md-font-library="material-icons">input</md-icon></a></h3>
-            <h4>{{ p.subtitle }}</h4>
-            <p>{{ p.content }}</p>
-          </div>
-        </md-list-item>
-      </md-list>
-    </section>
+        <section>
+            <h1>Previous Projects</h1>
+            <md-grid-list
+                    class="grid-project"
+                    md-cols-xs="1" md-cols-sm="2" md-cols-gt-sm="3"
+                    md-row-height-gt-md="1:1" md-row-height="2:1"
+                    md-gutter="5px">
+                <md-grid-tile ng-repeat="p in portfolios"
+                              class="primary-color-dark"
+                              md-rowspan="1" md-colspan="3" md-colspan-sm="1" md-colspan-xs="1">
+                    <ul>
+                        <li class="title" ng-bind="p.title"></li>
+                        <li class="subtitle" ng-bind="p.subtitle"></li>
+                        <li class="content" ng-bind="p.content"></li>
+                    </ul>
+                </md-grid-tile>
+            </md-grid-list>
+        </section>
 
-    <section>
-      <md-list>
-        <md-subheader class="md-primary"><h2>Contact Me</h2></md-subheader>
-        <md-list-item>
-          <div class="md-list-item-text div-last">
-            <p>Further enquiry
-              <a aria-label="Email"
-                 href="mailto:arthur.artsworks@gmail.com?subject=Enquiry%20and%20Project%20Opportunity">
-                <md-icon md-font-library="material-icons">mail</md-icon>
-              </a>
-            </p>
-          </div>
-        </md-list-item>
-      </md-list>
-    </section>
-
-  </md-content>
+        <section class="enquiry">
+            <h1>Further Enquiry
+                <a aria-label="Email"
+                   href="mailto:arthur.artsworks@gmail.com?subject=Enquiry%20and%20Project%20Opportunity">
+                    <md-icon md-font-library="material-icons">mail</md-icon>
+                </a>
+            </h1>
+        </section>
+    </div>
 </div>

@@ -1,11 +1,13 @@
-@import (reference) "../../less/common/mixin.less";
+@import (reference) "mixin.less";
+@import (reference) "colors.less";
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
 }
 
-h1, p {
-  margin: 0;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
 }
 
 md-grid-tile {
@@ -16,35 +18,49 @@ md-grid-tile {
   margin: 0 auto;
 }
 
-.spacer {
-  padding: 10px;
-}
-
 .page {
   width: 100%;
 }
 
 .container {
-  width: 75%;
+  width: 800px;
+  padding: 15px;
   .center;
 }
 
-.logo-big, .logo-medium, .logo-small {
-  font-size: 72px;
-  padding: 20px;
-  text-transform: uppercase;
-}
+#menu-top {
+  display: inline-block;
+  background-color: @black;
+  font-size: 12px;
+  width: 100%;
+  top: 0;
 
-.logo-medium {
-  font-size: 28px;
-}
-
-.logo-small {
-  font-size: 18px;
+  .logo {
+    float: left;
+    background-color: @white;
+    color: @black;
+    border: 5px solid;
+    margin: 10px;
+    padding: 5px;
+    text-transform: uppercase;
+  }
+  .text {
+    background-color: @black;
+    color: @white;
+    padding: 5px;
+  }
 }
 
 #menu-bottom {
-  width: 100%;
   position: fixed;
-  bottom: 10px;
+  width: 100%;
+  bottom: 20px;
+  font-size: 48px;
+  opacity: 0.9;
+  .center;
+
+  button, md-icon, span {
+    vertical-align: middle;
+    background-color: @white;
+  }
 }
