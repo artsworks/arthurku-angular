@@ -6,15 +6,15 @@
   "repository": "https://github.com/artsworks/arthurku-angular",
   "license": "MIT",
   "devDependencies": {
-    "bower": "^1.7.9",
+    "bower": "^1.8.0",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
     "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^2.0.11",
-    "gulp-concat": "^2.6.0",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
-    "gulp-copy": "0.0.2",
-    "gulp-less": "^3.1.0",
+    "gulp-copy": "1.0.0",
+    "gulp-less": "^3.3.0",
     "gulp-uglify": "^2.0.0"
   },
   "scripts": {
